@@ -1,0 +1,15 @@
+{
+    "name": "alyahmmed/laravel-mail-campaigns",
+    "authors": [
+        {
+            "name": "Ali Mohamed",
+            "email": "alyahmmed@ymail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+      "psr-4": {
+            "Alyahmmed\\LaravelMailCampaigns\\": "src/"
+        }
+    }
+}

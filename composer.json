@@ -1,5 +1,6 @@
 {
     "name": "alyahmmed/laravel-mail-campaigns",
+    "license": "MIT",
     "authors": [
         {
             "name": "Ali Mohamed",

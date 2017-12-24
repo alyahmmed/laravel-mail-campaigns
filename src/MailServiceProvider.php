@@ -12,12 +12,7 @@ class MailServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
-        if (!file_exists(base_path('config') . '/test.php')) {
-            $this->publishes([__DIR__ . '/config' => base_path('config')]);
-        }
-        $this->publishes([
-            //__DIR__ . '/views' => base_path('resources/views/'),
-        ]);
+        $this->publishes([__DIR__ . '/plugin' => base_path('/')]);
 
     }
 

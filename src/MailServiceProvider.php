@@ -13,7 +13,7 @@ class MailServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->publishes([__DIR__ . '/plugin' => base_path('/')]);
-
+        // \Artisan::call('migrate', ["--force"=> true]);
     }
 
     /**

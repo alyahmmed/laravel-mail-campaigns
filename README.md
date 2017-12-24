@@ -24,7 +24,7 @@ Then you should run database migrations to create mail tables:
 $ php artisan migrate
 ```
 
-Add the following to your main route file routes/web.php feel free to alter these routes to what suits you best
+Add the following to your main route file `routes/web.php` feel free to alter these routes to what suits you best
 ```
 // mail markting
 Route::any('mail/messages',

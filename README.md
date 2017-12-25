@@ -26,31 +26,34 @@ $ php artisan migrate
 
 Add the following to your main route file `routes/web.php` feel free to alter these routes to what suits you best
 ```
-// mail markting
-Route::any('mail/messages',
-    ['as' => 'mail.messages', 'uses' => 'Backend\MailController@messagesHome']);
-Route::any('mail/messages/delete/{id}',
-    ['as' => 'mail.messages.delete', 'uses' => 'Backend\MailController@deleteMessage']);
-Route::any('mail/messages/filter-emails/{id}',
-    ['as' => 'mail.messages.filter-emails', 'uses' => 'Backend\MailController@filterEmails']);
-Route::any('mail/messages/update/{id}',
-    ['as' => 'mail.messages.update', 'uses' => 'Backend\MailController@updateMessage']);
-Route::any('mail/statistics/{id}',
-    ['as' => 'mail.messages.statistics', 'uses' => 'Backend\MailController@statistics']);
-Route::any('mail/messages/send-test',
-    ['as' => 'mail.messages.send-test', 'uses' => 'Backend\MailController@sendTest']);
-Route::any('mail/messages/create',
-    ['as' => 'mail.messages.create', 'uses' => 'Backend\MailController@createMeaage']);
-// mail markting - cron
-Route::get('mail/messages/send',
-    ['as' => 'mail.messages.send', 'uses' => 'Backend\MailController@send']);
-// subscribers
-Route::any('mail/subscribers',
-    ['as' => 'subscribers.index', 'uses' => 'Backend\SubscribersController@index']);
-Route::any('mail/subscribers/export',
-    ['as' => 'subscribers.export', 'uses' => 'Backend\SubscribersController@export']);
-Route::any('mail/subscribers/{id}',
-    ['as' => 'subscribers.find', 'uses' => 'Backend\SubscribersController@show']);
-Route::any('mail/subscribers/delete/{id}',
-    ['as' => 'subscribers.delete', 'uses' => 'Backend\SubscribersController@delete']);
+Route::group(['namespace' => 'Backend', 'prefix' => '/backend'], function()
+{
+    // mail marketing
+    Route::any('mail/messages',
+        ['as' => 'mail.messages', 'uses' => 'MailController@messagesHome']);
+    Route::any('mail/messages/delete/{id}',
+        ['as' => 'mail.messages.delete', 'uses' => 'MailController@deleteMessage']);
+    Route::any('mail/messages/filter-emails/{id}',
+        ['as' => 'mail.messages.filter-emails', 'uses' => 'MailController@filterEmails']);
+    Route::any('mail/messages/update/{id}',
+        ['as' => 'mail.messages.update', 'uses' => 'MailController@updateMessage']);
+    Route::any('mail/statistics/{id}',
+        ['as' => 'mail.messages.statistics', 'uses' => 'MailController@statistics']);
+    Route::any('mail/messages/send-test',
+        ['as' => 'mail.messages.send-test', 'uses' => 'MailController@sendTest']);
+    Route::any('mail/messages/create',
+        ['as' => 'mail.messages.create', 'uses' => 'MailController@createMeaage']);
+    // mail markting - cron
+    Route::get('mail/messages/send',
+        ['as' => 'mail.messages.send', 'uses' => 'MailController@send']);
+    // subscribers
+    Route::any('mail/subscribers',
+        ['as' => 'subscribers.index', 'uses' => 'SubscribersController@index']);
+    Route::any('mail/subscribers/export',
+        ['as' => 'subscribers.export', 'uses' => 'SubscribersController@export']);
+    Route::any('mail/subscribers/{id}',
+        ['as' => 'subscribers.find', 'uses' => 'SubscribersController@show']);
+    Route::any('mail/subscribers/delete/{id}',
+        ['as' => 'subscribers.delete', 'uses' => 'SubscribersController@delete']);
+});
 ```
